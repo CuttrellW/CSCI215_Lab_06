@@ -1,16 +1,9 @@
 console.log("start");
-document.getElementById('email').onkeyup = function() {
-    var email = document.getElementById('email').value;
-    var re = new RegExp('/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/');
 
-    if (re.test(document.getElementById('email').value)) {
-        email.style.backgroundColor="white";
-    }
-    else{
-        email.style.backgroundColor="red";
-    }
 
-};
+
+
+
 
 document.getElementById('age').onkeyup = function() {
     var age = document.getElementById('age');
@@ -35,3 +28,17 @@ document.getElementById('name').onkeyup= function() {
         name.style.backgroundColor="white";
     }
 };
+
+function checkEmail(email) {
+    var re = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    if (re.test(document.getElementById('email').value)) {
+        return (false)
+    }
+    else {
+        alert ("Invalid email address");
+        return (true)
+    }
+
+}
+
+document.getElementById('submit').onclick = checkEmail;
